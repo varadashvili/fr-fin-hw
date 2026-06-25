@@ -1,0 +1,286 @@
+﻿/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.5.15,
+* Autoprefixer: v10.5.0
+* Browsers: last 4 version
+*/
+
+@use "reset";
+@use "variables" as *;
+@use "placeholders" as *;
+@use "mixins";
+@use "global";
+@use "main";
+@use "about";
+@use "services";
+@use "news";
+@use "contact";
+
+
+//--------------------------------------------
+.header {
+  position: sticky;
+  padding-block: 20px;
+  top: 0;
+  z-index: 100;
+  background-color: $color-white;
+  border: 1px solid $color-border;
+
+  @media (max-width: $bp-md) {
+    padding-block: 18px;
+  }
+  @media (max-width: $bp-sm) {
+    padding-block: 16px;
+  }
+
+  &__content {
+    @extend %flex-sp-b;
+
+    &__items {
+      @extend %flex-sp-b;
+      gap: 10px;
+    }
+
+    &__logo {
+      @extend %flex-center;
+      background-color: $color-accent;
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      color: $color-white;
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    &__brand {
+      color: $color-dark;
+      font-size: 22px;
+      font-weight: 800;
+
+      @media (max-width: $bp-md) {
+        font-size: 21px;
+      }
+      @media (max-width: $bp-sm) {
+        font-size: 19px;
+      }
+    }
+
+    .nav {
+
+      &__items {
+        display: -webkit-box;
+        display: flex;
+        gap: 32px;
+
+        @media (max-width: $bp-md) {
+          display: none;
+        }
+      }
+
+      &__link {
+        position: relative;
+        color: $color-body;
+        font-size: 15px;
+        font-weight: 500;
+        -webkit-transition: color $transition;
+        transition: color $transition;
+      }
+
+      &__link.is-active {
+        color: $color-accent;
+        font-weight: 600;
+      }
+
+      &__link::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -6px;
+        width: 0;
+        height: 2px;
+        background: $color-accent;
+        -webkit-transition: width $transition;
+        transition: width $transition;
+      }
+
+      &__link:hover {
+        color: $color-accent;
+      }
+
+      &__link:hover::after,
+      &__link.is-active::after {
+        width: 100%;
+      }
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: 0;
+      font-size: 24px;
+      color: $color-dark;
+      cursor: pointer;
+
+      @media (max-width: $bp-md) {
+        display: block;
+      }
+    }
+
+    .btn.btn--primary {
+      @media (max-width: $bp-md) {
+        display: none;
+      }
+    }
+  }
+}
+
+//--------------------------------------------
+.footer {
+  background-color: $color-ink;
+  padding: 64px 0 32px 0;
+
+  @media (max-width: $bp-md) {
+    padding: 48px 0 28px 0;
+  }
+  @media (max-width: $bp-sm) {
+    padding: 32px 0 28px 0;
+  }
+
+  .social {
+    background: #1E293B;
+
+    i {
+      color: $color-white;
+    }
+  }
+
+  .social:hover {
+    background: $color-accent;
+  }
+
+  &__content {
+    @extend %flex-sp-b;
+    gap: 32px;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+
+  &__brand {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 300px;
+
+    @media (max-width: $bp-md) {
+      max-width: 100%;
+      width: 100%;
+    }
+
+
+    &__link {
+      display: -webkit-box;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: start;
+      -ms-flex-pack: start;
+      justify-content: flex-start;
+      gap: 10px;
+    }
+
+    &__logo {
+      @extend %flex-center;
+      background-color: $color-accent;
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      color: $color-white;
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    &__logo-name {
+      color: $color-white;
+      font-size: 22px;
+      font-weight: 800;
+
+      @media (max-width: $bp-md) {
+        font-size: 21px;
+      }
+      @media (max-width: $bp-sm) {
+        font-size: 18px;
+      }
+    }
+
+    p {
+      color: $color-muted;
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 24px;
+
+      @media (max-width: $bp-md) {
+        font-size: 14px;
+      }
+    }
+  }
+
+  &__nav {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    gap: 14px;
+
+
+    @media (max-width: $bp-sm) {
+      display: none;
+    }
+
+    .h4 {
+      color: $color-white;
+      font-size: 15px;
+      font-weight: 700;
+
+      @media (max-width: $bp-md) {
+        font-size: 14px;
+      }
+    }
+
+    a {
+      color: $color-muted;
+      font-size: 14px;
+      font-weight: 400;
+      -webkit-transition: color $transition;
+      transition: color $transition;
+
+      @media (max-width: $bp-md) {
+        font-size: 13px;
+      }
+    }
+
+    a:hover {
+      color: $color-white;
+    }
+  }
+
+  &__line {
+    height: 1px;
+    margin: 40px 0;
+    background-color: #1E293B;
+  }
+
+  &__copyright {
+    p {
+      color: #64748B;
+      font-size: 13px;
+      font-weight: 400;
+    }
+  }
+}

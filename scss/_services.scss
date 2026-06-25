@@ -1,0 +1,75 @@
+﻿/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.5.15,
+* Autoprefixer: v10.5.0
+* Browsers: last 4 version
+*/
+
+@use "variables" as *;
+@use "placeholders" as *;
+
+.main-services {
+  .sec-welcome {
+    padding-block: 80px;
+  }
+
+  .sec-services {
+    background: $color-white;
+    padding-block: 88px;
+
+    .cards {
+      &__item {
+        -webkit-box-flex: 1;
+        -ms-flex: 1 0 calc((96% - 24px) / 3);
+        flex: 1 0 calc((96% - 24px) / 3);
+        background: $color-surface;
+      }
+    }
+  }
+
+  .sec-promo {
+    padding-block: 88px;
+
+    .cards {
+      &__icon {
+        @extend %flex-center;
+        border-radius: 12px;
+        background: $color-accent;
+        color: $color-white;
+        font-size: 21.84px;
+        font-weight: 700;
+      }
+    }
+  }
+
+  .sec-contact {
+    padding-block: 80px;
+    background: $color-accent;
+
+    .c-promo {
+      @extend %flex-center;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -ms-flex-item-align: stretch;
+      -ms-grid-row-align: stretch;
+      align-self: stretch;
+      gap: 24px;
+
+      &__h1 {
+        color: $color-white;
+        text-align: center;
+        font-size: 38px;
+        font-weight: 800;
+      }
+
+      &__offer {
+        color: #E0E7FF;
+        text-align: center;
+        font-size: 18px;
+        font-weight: 400;
+      }
+    }
+  }
+}
